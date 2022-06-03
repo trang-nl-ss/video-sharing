@@ -1,2 +1,2 @@
 export * from "./home/Home";
-export * from "./VideoSharing";
+export * from "./video-sharing/VideoSharing";

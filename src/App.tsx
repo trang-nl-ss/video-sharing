@@ -12,7 +12,7 @@ function App() {
           <Route element={<PageLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route
-              path="/video-sharing"
+              path="/share"
               element={
                 <RequireAuth>
                   <VideoSharing />

@@ -40,3 +40,8 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+fieldset {
+  border: 1px solid #dadada;
+  border-radius: 10px;
+  background: white;
+}
