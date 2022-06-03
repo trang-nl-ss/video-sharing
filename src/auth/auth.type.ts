@@ -1,5 +1,5 @@
 export interface SignInPayload {
-  username: string;
+  email: string;
   password: string;
 }
 
@@ -9,5 +9,6 @@ export interface SignInResponse {
 }
 
 export interface TokenPayload {
-  
+  email: string;
+  userName: string;
 }
