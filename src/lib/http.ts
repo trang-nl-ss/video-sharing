@@ -26,12 +26,10 @@ export class HttpClient {
   }
 
   private async makeResponse(res: Response): Promise<HttpResponse> {
-    const contentType = res.headers.get("content-type");
-    const isJsonObjectData = contentType && contentType.indexOf("application/json") !== -1;
-    const data = isJsonObjectData ? await res.json() : res;
+    const data = await res.json();
 
     if (res.status >= 400) {
-      throw new Error(isJsonObjectData ? data.message : 'Error');
+      throw new Error(data.message);
     }
     return {
       status: res.status,

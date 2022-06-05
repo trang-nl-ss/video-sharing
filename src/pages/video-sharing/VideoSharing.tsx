@@ -7,28 +7,45 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useAuth } from "../../auth";
+import { VideoService } from "../../services";
 import { useToast } from "../../shared";
 import { ShareVideoPayload } from "../type";
 
-const defaultPayload: ShareVideoPayload = {
-  url: "",
-};
+interface PreShareVideoPayload {
+  url: string;
+}
 
 export const VideoSharing = () => {
-  const { register, handleSubmit, formState } = useForm<ShareVideoPayload>({
-    mode: "onChange",
-    defaultValues: defaultPayload,
-  });
-  const { newToast } = useToast();
+  const { watch, register, handleSubmit, formState } =
+    useForm<PreShareVideoPayload>({
+      mode: "onChange",
+      defaultValues: { url: "" },
+    });
 
-  const onSubmit: SubmitHandler<ShareVideoPayload> = async (payload) => {
-    console.log(payload);
+  const { url } = watch();
+  const { newToast } = useToast();
+  const auth = useAuth();
+
+  const onSubmit: SubmitHandler<PreShareVideoPayload> = async (payload) => {
     try {
-      // await auth.signIn(payload);
-      // navigate(from, { replace: true });
-    } catch (err: any) {
+      const { data } = await VideoService.getVideoInfomation(payload.url);
+
+      const shareVideoPayload: ShareVideoPayload = {
+        url: url,
+        title: data?.title,
+        description: data?.author_name,
+        creator: auth.tokenPayload?.email || "",
+      };
+
+      await VideoService.shareVideo(shareVideoPayload);
       newToast({
-        title: err.message,
+        title: "Share video sucess!",
+        status: "success",
+      });
+    } catch (err) {
+      newToast({
+        title: "Share video fail!",
       });
     }
   };

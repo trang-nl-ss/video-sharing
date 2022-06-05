@@ -1,25 +1,20 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { Box, Button, FormControl, Input, Flex } from "@chakra-ui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useToast } from "../shared";
-import { SignInPayload } from "./auth.type";
-import { useAuth } from "./AuthProvider";
+import { useToast } from "../../shared";
+import { SignInPayload } from "../../auth/auth.type";
+import { useAuth } from "../../auth/AuthProvider";
 
 export const Login: React.FunctionComponent = () => {
-  const location = useLocation();
   const auth = useAuth();
-  const navigate = useNavigate();
   const { newToast } = useToast();
   const { register, handleSubmit, formState } = useForm<SignInPayload>({
     mode: "onChange",
   });
-  const from = (location.state as any)?.from?.pathname || "/";
 
   const onSubmit: SubmitHandler<SignInPayload> = async (payload) => {
-    console.log(payload);
     try {
       await auth.signIn(payload);
-      navigate(from, { replace: true });
     } catch (err: any) {
       newToast({
         title: err.message,

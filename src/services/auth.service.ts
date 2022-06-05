@@ -3,7 +3,7 @@ import { HttpClient, HttpResponse } from "../lib/http";
 import { parseJwt } from "../lib/jwt";
 import { SignInPayload, TokenPayload } from "../auth/auth.type";
 
-const baseUrl = import.meta.env.VITE_BASE_API_URL || ""
+const baseUrl = "http://localhost:9000/api"
 
 const authHttpClient = new HttpClient({
   baseUrl,
@@ -25,6 +25,7 @@ export const authService = {
     }
   },
   getToken(): string | undefined {
+    console.log(Cookies)
     return Cookies.get(TOKEN_KEY);
   },
   validateToken(token: string): TokenPayload | undefined {

@@ -1,2 +1,2 @@
-import Logo from './sharing-movie-logo.png'
+import Logo from './comedy-logo.png'
 export { Logo }

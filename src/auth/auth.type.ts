@@ -10,5 +10,4 @@ export interface SignInResponse {
 
 export interface TokenPayload {
   email: string;
-  userName: string;
 }
