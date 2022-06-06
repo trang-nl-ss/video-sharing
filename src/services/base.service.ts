@@ -6,7 +6,7 @@ export interface BaseResponse<T> {
   data: T;
 }
 
-const domain = process.env.REACT_APP_DOMAIN_DEV
+const domain = "http://54.169.120.198:9000/api"
 
 const baseUrl = `${domain}/api`
 
