@@ -6,8 +6,9 @@ export interface BaseResponse<T> {
   data: T;
 }
 
+const domain = process.env.REACT_APP_DOMAIN_DEV
 
-const baseUrl = "http://localhost:9000/api"
+const baseUrl = `${domain}/api`
 
 export const BaseHttpClient = new HttpClient({
   baseUrl,

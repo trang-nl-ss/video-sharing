@@ -3,7 +3,9 @@ import { HttpClient, HttpResponse } from "../lib/http";
 import { parseJwt } from "../lib/jwt";
 import { SignInPayload, TokenPayload } from "../auth/auth.type";
 
-const baseUrl = "http://localhost:9000/api"
+const domain = process.env.REACT_APP_DOMAIN_DEV
+
+const baseUrl = `${domain}/api`
 
 const authHttpClient = new HttpClient({
   baseUrl,
