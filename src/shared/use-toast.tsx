@@ -23,7 +23,7 @@ export function useToast(): ToastContextState {
   const newToast = (toastType: ToastType) => {
     toast({
       title: toastType.title,
-      position: toastType.position || "top",
+      position: "top",
       status: toastType.status || "error",
       isClosable: toastType.isCloseable,
       duration: DEFAULT_DURATION,
