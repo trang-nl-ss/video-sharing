@@ -2,7 +2,7 @@ import { HttpClient, HttpResponse } from "../lib/http";
 import { ShareVideoPayload, Video, VideoInformation, VoteVideoPayload } from "../pages/type";
 import { BaseHttpClient, BaseResponse } from "./base.service";
 
-const noembedUrl=  import.meta.env.VITE_NOEMBED_URL || "https://noembed.com"
+const noembedUrl= "https://noembed.com"
 const httpClient  = new HttpClient({
   baseUrl: noembedUrl
 });

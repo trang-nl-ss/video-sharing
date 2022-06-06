@@ -5,7 +5,7 @@ import { useToast } from "../../shared";
 import { SignInPayload } from "../../auth/auth.type";
 import { useAuth } from "../../auth/AuthProvider";
 
-export const Login: React.FunctionComponent = () => {
+export const Login = () => {
   const auth = useAuth();
   const { newToast } = useToast();
   const { register, handleSubmit, formState } = useForm<SignInPayload>({

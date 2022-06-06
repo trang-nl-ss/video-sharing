@@ -1,8 +1,8 @@
 import { Heading, Image, Flex, Button, Box } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { Logo } from "../assets/images";
-import { useAuth } from "../auth";
-import { Login } from "./login/Login";
+import { Logo } from "../../assets/images";
+import { useAuth } from "../../auth";
+import { Login } from "../login/Login";
 
 export const Header: React.FunctionComponent = () => {
   const auth = useAuth();
