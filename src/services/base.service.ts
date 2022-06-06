@@ -6,9 +6,7 @@ export interface BaseResponse<T> {
   data: T;
 }
 
-const domain = "http://54.169.120.198:9000/api"
-
-const baseUrl = `${domain}/api`
+const baseUrl = "http://54.169.120.198:9000/api"
 
 export const BaseHttpClient = new HttpClient({
   baseUrl,
