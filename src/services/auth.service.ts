@@ -3,7 +3,7 @@ import { HttpClient, HttpResponse } from "../lib/http";
 import { parseJwt } from "../lib/jwt";
 import { SignInPayload, TokenPayload } from "../auth/auth.type";
 
-const baseUrl = "http://54.169.120.198:9000/api"
+const baseUrl = "http://localhost:9000/api"
 
 const authHttpClient = new HttpClient({
   baseUrl,
